@@ -17,14 +17,14 @@
   --measure: 34rem;
   --radius: 10px;
 
-  /* Palette par défaut : Gynemed */
-  --ink: #0f121b;          /* fond des sections sombres */
-  --deep: #14234f;         /* bleu marine des tampons Gynemed */
-  --deep-2: #0b1640;
-  --accent: #d6a75c;       /* laiton */
-  --accent-strong: #e7bd78;
-  --on-accent: #1b1406;
-  --glow: 214, 167, 92;    /* même accent, en RVB pour les halos */
+  /* Palette par défaut : Gynemed, calquée sur le site d'origine (nuit, marine, bleu lumineux) */
+  --ink: #10131c;          /* fond des sections sombres */
+  --deep: #0c1c5c;         /* marine */
+  --deep-2: #0a1a55;
+  --accent: #5677f2;       /* bleu des titres et boutons */
+  --accent-strong: #6d8bff;
+  --on-accent: #ffffff;
+  --glow: 86, 119, 242;    /* même accent, en RVB pour les halos */
   --text: #f2f1ee;
   --text-soft: #c9cbd3;
   --paper: #ffffff;
@@ -214,7 +214,7 @@ body.menu-open { overflow: hidden; }
   padding: 18px 30px;
   background: var(--accent); color: var(--on-accent);
   border-radius: 8px; border: 0;
-  font: inherit; font-size: clamp(.95rem, 2.2vw, 1.15rem); font-weight: 500; letter-spacing: .06em; text-transform: uppercase;
+  font: inherit; font-size: clamp(.95rem, 2.2vw, 1.15rem); font-weight: 400; letter-spacing: .06em; text-transform: uppercase;
   text-decoration: none; cursor: pointer;
   transition: background .2s, transform .2s;
 }
