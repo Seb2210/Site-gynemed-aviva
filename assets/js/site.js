@@ -58,7 +58,8 @@ document.documentElement.classList.remove("no-js");
       a: Math.random() * 0.6 + 0.15,
       warm: Math.random() < 0.08,
     }));
-    strands = Array.from({ length: 5 }, (_, i) => ({
+    const hasImage = !!document.querySelector(".hero-bg");
+    strands = hasImage ? [] : Array.from({ length: 5 }, (_, i) => ({
       y: h * (0.25 + i * 0.13), amp: 30 + Math.random() * 60,
       k: 0.002 + Math.random() * 0.003, phase: Math.random() * 6.28, speed: 0.0015 + Math.random() * 0.002,
     }));

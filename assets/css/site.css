@@ -18,7 +18,7 @@
   --radius: 10px;
 
   /* Palette par défaut : Gynemed, calquée sur le site d'origine (nuit, marine, bleu lumineux) */
-  --ink: #10131c;          /* fond des sections sombres */
+  --ink: #080c16;          /* nuit, même teinte que le fond des images */
   --deep: #0c1c5c;         /* marine */
   --deep-2: #0a1a55;
   --accent: #5677f2;       /* bleu des titres et boutons */
@@ -33,7 +33,7 @@
 }
 
 body.brand-medeor {
-  --ink: #0e1512;
+  --ink: #080d10;
   --deep: #163a2e;
   --deep-2: #0d2a20;
   --accent: #b7d38a;
@@ -44,7 +44,7 @@ body.brand-medeor {
 }
 
 body.brand-marais {
-  --ink: #150f16;
+  --ink: #0c0a14;
   --deep: #42193f;
   --deep-2: #2c0f2a;
   --accent: #eaa79f;
@@ -159,6 +159,15 @@ body.menu-open { overflow: hidden; }
   overflow: hidden;
 }
 .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -3; opacity: .9; }
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(8, 12, 22, .78) 0%, rgba(8, 12, 22, .35) 55%, rgba(8, 12, 22, .1) 100%),
+    linear-gradient(180deg, rgba(8, 12, 22, 0) 70%, var(--deep) 100%);
+}
+.brand-medeor .hero-bg { filter: hue-rotate(-105deg) saturate(.75); }
+.brand-marais .hero-bg { filter: hue-rotate(38deg) saturate(.9); }
 .hero h1 {
   margin: 0 0 28px;
   font-size: clamp(2.6rem, 8.5vw, 5.6rem);
@@ -189,8 +198,15 @@ body.menu-open { overflow: hidden; }
 .facts b { display: block; font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 600; color: var(--text); line-height: 1.1; margin-bottom: 4px; }
 
 /* Illustrations entre les sections */
-.figure { padding: 24px var(--gutter) 0; display: grid; place-items: center; }
-.figure svg { width: min(560px, 100%); height: auto; }
+.figure { padding: 24px var(--gutter) 0; }
+.figure svg { width: 100%; max-width: 560px; height: auto; margin-inline: auto; }
+.figure img, .split-img {
+  width: 100%; max-width: 640px; height: auto; margin-inline: auto;
+  -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+}
+.network-map { max-width: 560px; margin: 12px auto 36px; }
+.network-map svg { width: 100%; height: auto; }
 
 /* Sections éditoriales (Vision, Services, Expertise…) */
 .feature { padding: clamp(64px, 10vw, 120px) var(--gutter); }
